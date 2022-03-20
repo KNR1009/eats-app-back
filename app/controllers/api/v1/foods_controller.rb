@@ -7,6 +7,10 @@ module Api
           foods:  foods
         }, status: :ok
       end
+
     end
+
+    private
+
   end
 end
