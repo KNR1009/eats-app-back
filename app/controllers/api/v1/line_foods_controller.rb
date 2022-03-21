@@ -64,12 +64,12 @@ module Api
             count: ordered_food.line_food.count.to_i + params[:count].to_i,
             active: true
           }
-        else
-          @line_food = ordered_food.build_line_food(
+        else 
+          @line_food = ordered_food.build.line_food({
             count: params[:count],
             restaurant: ordered_food.restaurant,
             active: true
-          )
+          })
         end
       end
     end
