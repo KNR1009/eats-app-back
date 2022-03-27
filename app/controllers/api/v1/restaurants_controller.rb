@@ -3,6 +3,7 @@ module Api
     class RestaurantsController < ApplicationController
       before_action :restaurant_param, only: [:show]
       before_action :restaurant_params, only: [:create]
+      
       def index
         restaurants = Restaurant.all
         restaurant_array = restaurants.map { |restaurant| {
