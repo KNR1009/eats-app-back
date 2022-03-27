@@ -4,10 +4,14 @@ module Api
       before_action :restaurant_params, only: [:show]
       def index
         restaurants = Restaurant.all
+        restaurant_array = restaurants.map { |restaurant| {
+          id: restaurant.id,
+          name: restaurant.name,
+          fee: restaurant.fee,
+          time_required: restaurant.time_required
+        }}
 
-        render json: {
-          restaurants: restaurants
-        }, status: :ok
+        render json: restaurant_array, status: :ok
       end
 
       def show 
