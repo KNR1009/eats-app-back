@@ -2,6 +2,7 @@ module Api
   module V1
     class RestaurantsController < ApplicationController
       before_action :restaurant_param, only: [:show]
+      before_action :restaurant_params, only: [:create]
       def index
         restaurants = Restaurant.all
         restaurant_array = restaurants.map { |restaurant| {
@@ -24,7 +25,6 @@ module Api
         else
           render json: {message: "レストランの新規作成に成功しました"}
         end
-
       end
 
       def show 
